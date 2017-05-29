@@ -1,0 +1,5 @@
+#ignore all all subfolders
+**/
+
+# test files
+*.txt
