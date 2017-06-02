@@ -1,15 +1,16 @@
 # Frequency Analysis of Words
 
-lang_frequency.py print top 10 most frequent words in the text
+lang_frequency.py print 10 pairs of most frequent words 
+and number of times it appears in the text
 
 program was writen in Python 3.6
 
 # Use example 
 
+```
 python lang_frequency.py  text_file.txt
-
-console output:
-the, of, to, and, a, in, cat, at, apple, os
+('the', 20) ('of', 19) ('to', 14) ('and', 14) ('a', 13) ('in', 11) ('cat', 10) ('x', 9) ('apple', 8) ('os', 8)
+```
 
 # Project Goals
 

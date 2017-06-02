@@ -1,25 +1,26 @@
 #!/usr/bin/python3
-# -*- coding: utf-8
 
 import sys
 import re
 from collections import Counter
 
+number_of_top_words = 10
 
-def load_data(filename: "str") -> "list":
+
+def load_words_from_text_file(filename: "str") -> "iter":
     with open(filename, 'r', encoding='utf-8') as f:
         raw_text = f.read().lower()
-    return [word for word in re.split('[^a-z]', raw_text) if word]
+    return filter(len, [word for word in re.split('[^a-z]', raw_text)])
 
 
-def get_most_frequent_words(words: "list") -> "list":
+def get_most_frequent_words(words: "iter") -> "list":
     text_dict = Counter(words)
-    return [key for key in sorted(text_dict, key=text_dict.get, reverse=True)][:10]
+    return text_dict.most_common(number_of_top_words)
 
 
 def main(filename):
-    words = load_data(filename)
-    print(', '.join(get_most_frequent_words(words)))
+    words = load_words_from_text_file(filename)
+    print(*get_most_frequent_words(words))
 
 
 if __name__ == '__main__':
